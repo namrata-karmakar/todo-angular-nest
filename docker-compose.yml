@@ -4,7 +4,7 @@ services:
   todo-api:
     build: ./backend
     restart: unless-stopped
-    env_file: ./.env
+    env_file: ./backend/.env
     ports:
       - 3001:3001
 
@@ -13,4 +13,4 @@ services:
       - todo-api
     build: ./frontend
     ports:
-      - 4200:4200
+      - 4200:80

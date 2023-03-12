@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    USER: 'user',
-    TODO: 'api/todo'
+    USER: 'http://localhost:3001/users',
+    TODO: 'http://localhost:3001/todos'
 };

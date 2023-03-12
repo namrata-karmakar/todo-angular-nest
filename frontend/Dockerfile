@@ -7,7 +7,6 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve app with nginx server
-FROM nginx:stable
+FROM nginx:alpine
 COPY --from=build /usr/src/app/dist/ /usr/share/nginx/html
 EXPOSE 80
-CMD ["npm", "start"]
