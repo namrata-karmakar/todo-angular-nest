@@ -7,6 +7,7 @@ To Do application with UI designed using Angular and the backend built using Nes
 Pre-requisites: Docker is already installed
 1. Clone the repository.
 2. Navigate into the project directory, run the command "docker-compose up -d --build".
+3. The application will be running on "http://localhost:4200/".
 
 ### 2. Without Docker
 1. Clone the repository.
