@@ -1,17 +1,18 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { config } from './config';
+import dotenv from 'dotenv';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
     credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,
   });
-  await app.listen(config.get('applicationPort'));
-  console.log(`Listening on port ${config.get('applicationPort')}`);
+  dotenv.config();
+  await app.listen(process.env.APPLICATION_PORT);
+  console.log(`Listening on port ${process.env.APPLICATION_PORT}`);
 }
 bootstrap();

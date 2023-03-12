@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  todo-api:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./src/environments/.env
+    ports:
+      - 3001:3001
+
+  todo-ui:
+    depends_on:
+      - todo-api
+    build: ./frontend
+    ports:
+      - 4200:4200
