@@ -1,16 +1,29 @@
 version: "3.9"
 
 services:
+  database:
+    build: ./db
+    ports:
+      - "5435:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./db/minimalists.sql:/docker-entrypoint-initdb.d/minimalists.sql
   todo-api:
+    depends_on:
+      - database
     build: ./backend
     restart: unless-stopped
     env_file: ./backend/.env
     ports:
       - 3001:3001
-
+    links:
+      - database
   todo-ui:
     depends_on:
       - todo-api
     build: ./frontend
     ports:
       - 4200:80
+volumes:
+  db:
+    driver: local
