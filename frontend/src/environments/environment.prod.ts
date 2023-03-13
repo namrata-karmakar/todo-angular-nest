@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    USER: 'http://localhost:3001/users',
-    TODO: 'http://localhost:3001/todos'
+    USER: 'https://todo-nestjs-krpw.onrender.com/users',
+    TODO: 'https://todo-nestjs-krpw.onrender.com/todos'
 };
