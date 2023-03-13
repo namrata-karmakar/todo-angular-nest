@@ -4,6 +4,8 @@
 
 export const environment = {
     production: false,
+    qa: false,
+    development: true,
     USER: 'http://localhost:3001/users',
     TODO: 'http://localhost:3001/todos'
 };
